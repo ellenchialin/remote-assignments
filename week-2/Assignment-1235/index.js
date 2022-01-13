@@ -56,12 +56,8 @@ calculate(subtractWithClass)
 /* ---------- Assignment 3 (Function, Array and Object) ---------- */
 function avg(data) {
   const productNum = data.size
-
   const productsArray = data.products
-  const sum = productsArray
-    .map((item) => item.price)
-    .reduce((prev, current) => prev + current, 0)
-  
+  const sum = productsArray.reduce((prev, current) => prev + current.price, 0)
   return sum / productNum
 }
 
