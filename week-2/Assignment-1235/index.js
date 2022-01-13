@@ -58,12 +58,10 @@ function avg(data) {
   const productNum = data.size
 
   const productsArray = data.products
-  const priceList = []
-  productsArray.forEach((item) => {
-    priceList.push(item.price)
-  })
-
-  const sum = priceList.reduce((prev, current) => prev + current, 0)
+  const sum = productsArray
+    .map((item) => item.price)
+    .reduce((prev, current) => prev + current, 0)
+  
   return sum / productNum
 }
 
