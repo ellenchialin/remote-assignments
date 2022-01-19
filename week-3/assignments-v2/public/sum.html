@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>week3-assignments</title>
+  </head>
+  <body>
+    <div id="container" class="container">
+      <form class="form" id="form">
+        <label id="label" for="number"
+          >Enter an integer(>0) to see result</label
+        >
+        <input id="number" type="text" />
+        <button type="submit" id="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const container = document.getElementById('container')
+      const form = document.getElementById('form')
+      const label = document.getElementById('label')
+      const numberInput = document.getElementById('number')
+      const submitBtn = document.getElementById('submit')
+
+      const renderError = function (msg) {
+        container.innerHTML = `
+          <h4>${msg}</h4>
+          <a class='btn' href="/sum.html">Try Again</a>
+        `
+      }
+
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let numberQuery = ''
+        numberQuery = numberInput.value
+
+        async function renderResult() {
+          const resultOutput = await getResult(
+            `http://localhost:3000/getData?number=${numberQuery}`
+          )
+
+          if (!resultOutput) return
+
+          form.style.display = 'none'
+          container.innerHTML = `
+              <div class='result'>
+                <h4>Result:</h4>
+                <h4>${resultOutput}</h4>
+                <a class='btn' href="/sum.html">Try Again</a>
+              </div>
+            `
+        }
+        renderResult()
+      })
+
+      async function getResult(url) {
+        try {
+          const res = await fetch(url)
+          if (!res.ok) {
+            throw new Error(
+              'Problem getting result. Please check the the number is an integer(>0).'
+            )
+          }
+
+          const data = await res.json()
+          return data.sum
+        } catch (err) {
+          renderError(err.message)
+          console.error(err)
+        }
+      }
+    </script>
+  </body>
+</html>

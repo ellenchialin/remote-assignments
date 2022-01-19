@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ff6b0f;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form,
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form input {
+  margin-block: 1em;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.2em 0.4em;
+}
+
+.form button {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1.2em;
+  background-color: rgba(256, 256, 256, 1);
+  color: #ff6b0f;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.home,
+.not-found,
+.result,
+.show-name {
+  height: 100vh;
+  background-color: #ff6b0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home h4,
+.not-found h4,
+.result h4,
+.show-name h4 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.home h4,
+.result h4,
+.show-name h4 {
+  margin-bottom: 1em;
+}
+
+.not-found p {
+  margin-top: 2.5em;
+}
+
+.btn,
+.home .btn,
+.not-found .btn,
+.result .btn,
+.show-name .btn {
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3em 0.8em;
+  background-color: rgba(256, 256, 256, 1);
+  color: #ff6b0f;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.home .btn:hover,
+.form button:hover,
+.not-found .btn:hover,
+.result .btn:hover,
+.show-name .btn:hover {
+  background-color: rgba(256, 256, 256, 0.85);
+}
