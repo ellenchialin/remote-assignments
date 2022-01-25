@@ -1,0 +1,8 @@
+.hero-message {
+  background-color: #7cd8de;
+  min-height: 15em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
