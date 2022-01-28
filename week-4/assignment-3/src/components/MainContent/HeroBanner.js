@@ -9,7 +9,7 @@ const HeroBanner = () => {
   }
 
   return (
-    <div className={styles['hero-message']} onClick={handleTextChange}>
+    <div className={styles.heroMessage} onClick={handleTextChange}>
       <h1>{textIsChanged ? 'Have a good time 😎' : 'Hi There!'}</h1>
     </div>
   )

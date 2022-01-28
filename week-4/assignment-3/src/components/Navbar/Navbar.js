@@ -9,46 +9,36 @@ const Navbar = () => {
 
   const handleShow = () => setIsShow(!isShow)
 
+  const navItem = [
+    { id: 1, name: 'Home' },
+    { id: 2, name: 'About' },
+    { id: 3, name: 'Works' },
+    { id: 4, name: 'Contact' },
+  ]
+
   const navClasses = `${styles.nav} ${isShow ? styles.show : ''}`
 
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <FaReact className={styles.icon} />
+          <FaReact />
         </div>
 
         <nav className={navClasses}>
-          <ul className={styles['nav-list']}>
-            <li className={styles['nav-item']}>
-              <a href='/' className={styles['nav-link']}>
-                Home
-              </a>
-            </li>
-            <li className={styles['nav-item']}>
-              <a href='/' className={styles['nav-link']}>
-                About
-              </a>
-            </li>
-            <li className={styles['nav-item']}>
-              <a href='/' className={styles['nav-link']}>
-                Works
-              </a>
-            </li>
-            <li className={styles['nav-item']}>
-              <a href='/' className={styles['nav-link']}>
-                Contact
-              </a>
-            </li>
+          <ul className={styles.navList}>
+            {navItem.map((item) => (
+              <li key={item.id}>
+                <a href='/' className={styles.navLink}>
+                  {item.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div className={styles.hamburger} onClick={handleShow}>
-          {isShow ? (
-            <FaRegTimesCircle className={styles.icon} />
-          ) : (
-            <GiHamburgerMenu className={styles.icon} />
-          )}
+          {isShow ? <FaRegTimesCircle /> : <GiHamburgerMenu />}
         </div>
       </div>
     </div>

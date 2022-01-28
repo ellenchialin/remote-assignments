@@ -10,8 +10,8 @@ const BoxSection = () => {
   const handleShowMore = () => setIsShowMore(!isShowMore)
 
   return (
-    <div className={styles['section-container']}>
-      <h2 className={styles['section-title']}>Section Title</h2>
+    <div className={styles.sectionContainer}>
+      <h2 className={styles.sectionTitle}>Section Title</h2>
       <Boxes />
       <Button handleClick={handleShowMore} isShowMore={isShowMore} />
       {isShowMore ? <Boxes /> : ''}

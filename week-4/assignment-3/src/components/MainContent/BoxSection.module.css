@@ -1,11 +1,11 @@
-.section-container {
+.sectionContainer {
   max-width: 90%;
   display: flex;
   flex-direction: column;
   margin: 0 auto 1em;
 }
 
-.section-title {
+.sectionTitle {
   text-align: center;
   margin-block: 1em;
 }
